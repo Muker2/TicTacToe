@@ -70,13 +70,19 @@ public class Gui implements MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		JLabel label = (JLabel) e.getSource();
-		if (player1 == 1) {
-		label.setText("X");
-		player1--;
-		}else{
-		label.setText("O");
-		player1++;
+		if (label.getText().equals("O") || label.getText().equals("X")) {
+			return;
+		}else {
+		
+			if (player1 == 1) {
+				label.setText("X");
+				player1--;
+			}else{
+				label.setText("O");
+				player1++;
+			}
 		}
+		
 	}
 			
 		
