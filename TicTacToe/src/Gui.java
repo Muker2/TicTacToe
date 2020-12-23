@@ -15,7 +15,7 @@ public class Gui implements MouseListener{
 
 	private JFrame frame;
 	public JLabel felder[] = new JLabel[9];
-	int player1 = 1;
+	Player player = new Player();
 
 	/**
 	 * Launch the application.
@@ -45,12 +45,14 @@ public class Gui implements MouseListener{
 	 */
 	public void initialize() {
 		frame = new JFrame();
+		frame.setTitle("Tic Tac Toe");
 		frame.setBounds(100, 100, 700, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout());
 		JPanel feld = new JPanel();
 		feld.setLayout(new GridLayout(3, 3));
 		frame.add(feld);
+		
 		
 		
 		Border border = BorderFactory.createLineBorder(Color.black, 1);
@@ -74,12 +76,12 @@ public class Gui implements MouseListener{
 			return;
 		}else {
 		
-			if (player1 == 1) {
+			if (player.getSpielzug() == true) {
 				label.setText("X");
-				player1--;
+				player.setSpielzug(false);
 			}else{
 				label.setText("O");
-				player1++;
+				player.setSpielzug(true);
 			}
 		}
 		
