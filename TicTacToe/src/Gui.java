@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 
@@ -5,6 +6,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 import java.awt.GridLayout;
+import java.awt.event.MouseEvent;
 
 
 public class Gui {
@@ -41,45 +43,28 @@ public class Gui {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 700, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new GridLayout(3, 3));
+		frame.getContentPane().setLayout(new BorderLayout());
+		JPanel feld = new JPanel();
+		feld.setLayout(new GridLayout(3, 3));
+		frame.add(feld);
+		
 		
 		Border border = BorderFactory.createLineBorder(Color.black, 1);
 		
-		JLabel feld1 = new JLabel("", SwingConstants.CENTER);
-		feld1.setBorder(border);
-		frame.getContentPane().add(feld1);
+		JLabel felder[] = new JLabel[9];
 		
-		JLabel feld2 = new JLabel("", SwingConstants.CENTER);
-		feld2.setBorder(border);
-		frame.getContentPane().add(feld2);
+		for (int i = 0; i<felder.length; i++) {
+			felder[i] = new JLabel("", SwingConstants.CENTER);
+			felder[i].setBorder(border);
+			felder[i].addMouseListener(null);
+			feld.add(felder[i]);
+		}
 		
-		JLabel feld3 = new JLabel("", SwingConstants.CENTER);
-		feld3.setBorder(border);
-		frame.getContentPane().add(feld3);
 		
-		JLabel feld4 = new JLabel("", SwingConstants.CENTER);
-		feld4.setBorder(border);
-		frame.getContentPane().add(feld4);
+		}
 		
-		JLabel feld5 = new JLabel("", SwingConstants.CENTER);
-		feld5.setBorder(border);
-		frame.getContentPane().add(feld5);
 		
-		JLabel feld6 = new JLabel("", SwingConstants.CENTER);
-		feld6.setBorder(border);
-		frame.getContentPane().add(feld6);
-		
-		JLabel feld7 = new JLabel("", SwingConstants.CENTER);
-		feld7.setBorder(border);
-		frame.getContentPane().add(feld7);
-		
-		JLabel feld8 = new JLabel("", SwingConstants.CENTER);
-		feld8.setBorder(border);
-		frame.getContentPane().add(feld8);
-		
-		JLabel feld9 = new JLabel("", SwingConstants.CENTER);
-		feld9.setBorder(border);
-		frame.getContentPane().add(feld9);
-	}
-
 }
+	
+	
+
