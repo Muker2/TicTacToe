@@ -1,17 +1,21 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 
-public class Gui {
+public class Gui implements MouseListener{
 
 	private JFrame frame;
+	public JLabel felder[] = new JLabel[9];
+	int player1 = 1;
 
 	/**
 	 * Launch the application.
@@ -39,7 +43,7 @@ public class Gui {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	public void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 700, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,17 +55,54 @@ public class Gui {
 		
 		Border border = BorderFactory.createLineBorder(Color.black, 1);
 		
-		JLabel felder[] = new JLabel[9];
 		
 		for (int i = 0; i<felder.length; i++) {
 			felder[i] = new JLabel("", SwingConstants.CENTER);
 			felder[i].setBorder(border);
-			felder[i].addMouseListener(null);
+			felder[i].setFont(new Font("Arial", Font.PLAIN, 30));
+			felder[i].addMouseListener(this);
 			feld.add(felder[i]);
 		}
 		
 		
 		}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		JLabel label = (JLabel) e.getSource();
+		if (player1 == 1) {
+		label.setText("X");
+		player1--;
+		}else{
+		label.setText("O");
+		player1++;
+		}
+	}
+			
+		
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 		
 		
 }
