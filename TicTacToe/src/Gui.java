@@ -110,6 +110,10 @@ public class Gui implements MouseListener{
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
+				
+		
+		
+		
 	}
 		
 		

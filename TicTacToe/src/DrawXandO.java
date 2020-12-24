@@ -1,27 +1,31 @@
-
-
 import java.swing.JLabel;
 
+public class DrawXandO {	
+	
+	static Image imgX, imgO;
+	
+	
+	public DrawXandO() {
+		try {
+		imgX = ImageIO.read(new File("quelle/x.png"));
+		imgO = ImageIO.read(new File("quelle/o.png"));
+		
+	}
+	catch (IOException e)	{
+		e.printStacktrace();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
-
-public class DrawXandO extends JLabel{			//das die DrawXandO Klasse alle Eigenschaften des JLabels übernimmt
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	g.	
 		
 		
 	}
