@@ -1,4 +1,9 @@
-import java.swing.JLabel;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+
+
+import javax.imageio.ImageIO;
 
 public class DrawXandO {	
 	
@@ -6,15 +11,17 @@ public class DrawXandO {
 	
 	
 	public DrawXandO() {
+		
 		try {
+		
 		imgX = ImageIO.read(new File("quelle/x.png"));
 		imgO = ImageIO.read(new File("quelle/o.png"));
 		
 	}
 	catch (IOException e)	{
-		e.printStacktrace();
+		e.fillInStackTrace();
 		
-		
+	}
 		
 		
 		
