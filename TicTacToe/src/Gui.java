@@ -1,121 +1,84 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 
 import java.awt.GridLayout;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
-public class Gui implements MouseListener{
+public class Gui implements ActionListener{
 
-	private JFrame frame;
-	public JLabel felder[] = new JLabel[9];
+	JFrame frame = new JFrame();
+	JButton felder[] = new JButton[9];
 	Player player = new Player();
+	Border border = BorderFactory.createLineBorder(Color.black, 1);
+	JPanel feld = new JPanel();
+	JPanel textfeld = new JPanel();
+	JTextField text = new JTextField();
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Gui window = new Gui();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the application.
-	 */
-	public Gui() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	public void initialize() {
-		frame = new JFrame();
+	Gui(){
 		frame.setTitle("Tic Tac Toe");
-		frame.setBounds(100, 100, 700, 700);
+		frame.setSize(700, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new BorderLayout());
-		JPanel feld = new JPanel();
+		frame.setLayout(new BorderLayout());
+		
+		text.setBackground(Color.BLUE);
+		text.setForeground(Color.WHITE);
+		text.setFont(new Font("Arial", Font.PLAIN, 10));
+		text.setHorizontalAlignment(JLabel.CENTER);
+		text.setText("Tic Tac Toe");
+		
+		textfeld.setLayout(new BorderLayout());
+		textfeld.setBounds(0, 0, 700, 100);
+		textfeld.setBackground(Color.BLUE);
+		textfeld.setOpaque(true);
+		
+	
 		feld.setLayout(new GridLayout(3, 3));
-		frame.add(feld);
-
-		
-		
-		
-		Border border = BorderFactory.createLineBorder(Color.black, 1);
-		
-		
 		for (int i = 0; i<felder.length; i++) {
-			felder[i] = new JLabel("", SwingConstants.CENTER);
+			felder[i] = new JButton("");
 			felder[i].setBorder(border);
+			felder[i].setBackground(Color.WHITE);
+			felder[i].setOpaque(true);
 			felder[i].setFont(new Font("Arial", Font.PLAIN, 30));
-			felder[i].addMouseListener(this);
+			felder[i].addActionListener(this);
 			feld.add(felder[i]);
 		}
 		
+		textfeld.add(text);
+		frame.add(textfeld, BorderLayout.NORTH);
+		frame.add(feld, BorderLayout.CENTER);
+		frame.setVisible(true);
+		
 		
 		}
 
+
 	@Override
-	public void mouseClicked(MouseEvent e) {
-		JLabel label = (JLabel) e.getSource();
-		if (label.getText().equals("O") || label.getText().equals("X")) {
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		JButton button = (JButton) e.getSource();
+		if (button.getText().equals("O") || button.getText().equals("X")) {
 			return;
 		}else {
 		
 			if (player.getSpielzug() == true) {
-				label.setText("X");
+				button.setText("X");
 				player.setSpielzug(false);
 			}else{
-				label.setText("O");
+				button.setText("O");
 				player.setSpielzug(true);
 			}
 		}
 		
 	}
 			
-		
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-				
-		
-		
-		
-	}
 		
 		
 }
