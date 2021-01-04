@@ -76,12 +76,15 @@ public class Gui implements ActionListener{
 			}
 		}
 		
+	
 	}
+	
+	
 			
 
 		
 		
-}
+}  // test um zu gucken ob es bei Marius klappt
 	
 	
 
