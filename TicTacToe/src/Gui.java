@@ -69,14 +69,87 @@ public class Gui implements ActionListener{
 		
 			if (player.getSpielzug() == true) {
 				button.setText("X");
+				spielfeldprüfen1();
+				spielfeldprüfen2();
 				player.setSpielzug(false);
+
 			}else{
 				button.setText("O");
+				spielfeldprüfen1();
+				spielfeldprüfen2();
 				player.setSpielzug(true);
 			}
 		}
 		
 	
+	}
+	
+	public void spielfeldprüfen1() {
+		if (felder[0].getText() == "X" && felder[1].getText() == "X" && felder[2].getText() == "X") {
+			System.out.println("Spieler 1 gewinnt");
+			}
+		
+		if (felder[0].getText() == "X" && felder[4].getText() == "X" && felder[8].getText() == "X") {
+			System.out.println("Spieler 1 gewinnt");
+			}
+		
+		if (felder[0].getText() == "X" && felder[3].getText() == "X" && felder[6].getText() == "X") {
+			System.out.println("Spieler 1 gewinnt");
+			}
+		
+		if (felder[1].getText() == "X" && felder[4].getText() == "X" && felder[7].getText() == "X") {
+			System.out.println("Spieler 1 gewinnt");
+			}
+		
+		if (felder[2].getText() == "X" && felder[5].getText() == "X" && felder[8].getText() == "X") {
+			System.out.println("Spieler 1 gewinnt");
+			}
+		
+		if (felder[6].getText() == "X" && felder[7].getText() == "X" && felder[8].getText() == "X") {
+			System.out.println("Spieler 1 gewinnt");
+			}
+		
+		if (felder[2].getText() == "X" && felder[4].getText() == "X" && felder[6].getText() == "X") {
+			System.out.println("Spieler 1 gewinnt");
+			}
+		
+		if (felder[0].getText() == "X" && felder[1].getText() == "X" && felder[2].getText() == "X") {
+			System.out.println("Spieler 1 gewinnt");
+			}
+	}
+	
+	public void spielfeldprüfen2() {
+		if (felder[0].getText() == "O" && felder[1].getText() == "O" && felder[2].getText() == "O") {
+			System.out.println("Spieler 2 gewinnt");
+			}
+		
+		if (felder[0].getText() == "O" && felder[4].getText() == "O" && felder[8].getText() == "O") {
+			System.out.println("Spieler 2 gewinnt");
+			}
+		
+		if (felder[0].getText() == "O" && felder[3].getText() == "O" && felder[6].getText() == "O") {
+			System.out.println("Spieler 2 gewinnt");
+			}
+		
+		if (felder[1].getText() == "O" && felder[4].getText() == "O" && felder[7].getText() == "O") {
+			System.out.println("Spieler 2 gewinnt");
+			}
+		
+		if (felder[2].getText() == "O" && felder[5].getText() == "O" && felder[8].getText() == "O") {
+			System.out.println("Spieler 2 gewinnt");
+			}
+		
+		if (felder[6].getText() == "O" && felder[7].getText() == "O" && felder[8].getText() == "O") {
+			System.out.println("Spieler 2 gewinnt");
+			}
+		
+		if (felder[2].getText() == "O" && felder[4].getText() == "O" && felder[6].getText() == "O") {
+			System.out.println("Spieler 2 gewinnt");
+			}
+		
+		if (felder[0].getText() == "O" && felder[1].getText() == "O" && felder[2].getText() == "O") {
+			System.out.println("Spieler 2 gewinnt");
+			}
 	}
 	
 	
