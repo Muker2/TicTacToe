@@ -116,6 +116,11 @@ public class Gui implements ActionListener{
 		if (felder[0].getText() == "X" && felder[1].getText() == "X" && felder[2].getText() == "X") {
 			System.out.println("Spieler 1 gewinnt");
 			}
+		
+		else {
+		return;
+		}
+		
 	}
 	
 	public void spielfeldprüfen2() {
@@ -150,6 +155,9 @@ public class Gui implements ActionListener{
 		if (felder[0].getText() == "O" && felder[1].getText() == "O" && felder[2].getText() == "O") {
 			System.out.println("Spieler 2 gewinnt");
 			}
+		else {
+			
+		return;}
 	}
 	
 	
