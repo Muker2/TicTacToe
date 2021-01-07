@@ -19,6 +19,7 @@ public class Gui implements ActionListener{
 	JPanel feld = new JPanel();
 	JPanel textfeld = new JPanel();
 	JTextField text = new JTextField();
+	JDialog dialog = new JDialog();
 
 
 	Gui(){
@@ -38,6 +39,10 @@ public class Gui implements ActionListener{
 		textfeld.setBackground(Color.BLUE);
 		textfeld.setOpaque(true);
 		
+		dialog.setSize(300, 300);
+		dialog.setModal(true);
+		dialog.setVisible(false);
+		
 	
 		feld.setLayout(new GridLayout(3, 3));
 		for (int i = 0; i<felder.length; i++) {
@@ -50,7 +55,6 @@ public class Gui implements ActionListener{
 			feld.add(felder[i]);
 		}
 		
-		textfeld.add(text);
 		frame.add(textfeld, BorderLayout.NORTH);
 		frame.add(feld, BorderLayout.CENTER);
 		frame.setVisible(true);
@@ -87,34 +91,42 @@ public class Gui implements ActionListener{
 	public void spielfeldprüfen1() {
 		if (felder[0].getText() == "X" && felder[1].getText() == "X" && felder[2].getText() == "X") {
 			System.out.println("Spieler 1 gewinnt");
+			dialog.setVisible(true);
 			}
 		
 		if (felder[0].getText() == "X" && felder[4].getText() == "X" && felder[8].getText() == "X") {
 			System.out.println("Spieler 1 gewinnt");
+			dialog.setVisible(true);
 			}
 		
 		if (felder[0].getText() == "X" && felder[3].getText() == "X" && felder[6].getText() == "X") {
 			System.out.println("Spieler 1 gewinnt");
+			dialog.setVisible(true);
 			}
 		
 		if (felder[1].getText() == "X" && felder[4].getText() == "X" && felder[7].getText() == "X") {
 			System.out.println("Spieler 1 gewinnt");
+			dialog.setVisible(true);
 			}
 		
 		if (felder[2].getText() == "X" && felder[5].getText() == "X" && felder[8].getText() == "X") {
 			System.out.println("Spieler 1 gewinnt");
+			dialog.setVisible(true);
 			}
 		
 		if (felder[6].getText() == "X" && felder[7].getText() == "X" && felder[8].getText() == "X") {
 			System.out.println("Spieler 1 gewinnt");
+			dialog.setVisible(true);
 			}
 		
 		if (felder[2].getText() == "X" && felder[4].getText() == "X" && felder[6].getText() == "X") {
 			System.out.println("Spieler 1 gewinnt");
+			dialog.setVisible(true);
 			}
 		
 		if (felder[3].getText() == "X" && felder[4].getText() == "X" && felder[5].getText() == "X") {
 			System.out.println("Spieler 1 gewinnt");
+			dialog.setVisible(true);
 			}
 		
 		else {
@@ -126,34 +138,42 @@ public class Gui implements ActionListener{
 	public void spielfeldprüfen2() {
 		if (felder[0].getText() == "O" && felder[1].getText() == "O" && felder[2].getText() == "O") {
 			System.out.println("Spieler 2 gewinnt");
+			dialog.setVisible(true);
 			}
 		
 		if (felder[0].getText() == "O" && felder[4].getText() == "O" && felder[8].getText() == "O") {
 			System.out.println("Spieler 2 gewinnt");
+			dialog.setVisible(true);
 			}
 		
 		if (felder[0].getText() == "O" && felder[3].getText() == "O" && felder[6].getText() == "O") {
 			System.out.println("Spieler 2 gewinnt");
+			dialog.setVisible(true);
 			}
 		
 		if (felder[1].getText() == "O" && felder[4].getText() == "O" && felder[7].getText() == "O") {
 			System.out.println("Spieler 2 gewinnt");
+			dialog.setVisible(true);
 			}
 		
 		if (felder[2].getText() == "O" && felder[5].getText() == "O" && felder[8].getText() == "O") {
 			System.out.println("Spieler 2 gewinnt");
+			dialog.setVisible(true);
 			}
 		
 		if (felder[6].getText() == "O" && felder[7].getText() == "O" && felder[8].getText() == "O") {
 			System.out.println("Spieler 2 gewinnt");
+			dialog.setVisible(true);
 			}
 		
 		if (felder[2].getText() == "O" && felder[4].getText() == "O" && felder[6].getText() == "O") {
 			System.out.println("Spieler 2 gewinnt");
+			dialog.setVisible(true);
 			}
 		
 		if (felder[3].getText() == "O" && felder[4].getText() == "O" && felder[5].getText() == "O") {
 			System.out.println("Spieler 2 gewinnt");
+			dialog.setVisible(true);
 			}
 		else {
 			
