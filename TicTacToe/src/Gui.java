@@ -113,7 +113,7 @@ public class Gui implements ActionListener{
 			System.out.println("Spieler 1 gewinnt");
 			}
 		
-		if (felder[0].getText() == "X" && felder[1].getText() == "X" && felder[2].getText() == "X") {
+		if (felder[3].getText() == "X" && felder[4].getText() == "X" && felder[5].getText() == "X") {
 			System.out.println("Spieler 1 gewinnt");
 			}
 		
@@ -152,7 +152,7 @@ public class Gui implements ActionListener{
 			System.out.println("Spieler 2 gewinnt");
 			}
 		
-		if (felder[0].getText() == "O" && felder[1].getText() == "O" && felder[2].getText() == "O") {
+		if (felder[3].getText() == "O" && felder[4].getText() == "O" && felder[5].getText() == "O") {
 			System.out.println("Spieler 2 gewinnt");
 			}
 		else {
