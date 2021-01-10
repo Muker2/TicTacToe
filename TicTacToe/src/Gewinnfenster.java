@@ -2,6 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,15 +11,17 @@ import javax.swing.*;
 public class Gewinnfenster {
 	
 	JDialog gewinn = new JDialog();
-	JLabel panel = new JLabel();
+	JPanel panel = new JPanel();
 	JButton nm = new JButton();
 	JButton hm = new JButton();
 	JPanel buttonlayout = new JPanel();
+	JLabel label = new JLabel();
+	JLabel label2 = new JLabel();
 
 	
 	public void gewonnen(int win){
 		gewinn.setTitle("Tic Tac Toe");
-		gewinn.setSize(300, 300);
+		gewinn.setSize(300, 200);
 		gewinn.setLayout(new BorderLayout());
 		gewinn.setLocationRelativeTo(null);
 		gewinn.setVisible(true);
@@ -39,13 +42,14 @@ public class Gewinnfenster {
 		buttonlayout.add(nm);
 		buttonlayout.add(hm);
 		
-		
-		panel.setBackground(Color.WHITE);
-		panel.setVisible(true);
-		panel.setText("Glückwunsch!" + " " + "Spieler" + " " + win  + " "  +"hat gewonnen!");
+		label.setBackground(Color.WHITE);
+		label.setVisible(true);
+		label.setText("Glückwunsch!" + " " + "Spieler" + " " + win  + " "  +"hat gewonnen!");
+		label.setFont(new Font("Arial", Font.PLAIN, 15));
+		panel.add(label);
 	
 		gewinn.add(buttonlayout, BorderLayout.SOUTH);
-		gewinn.add(panel, BorderLayout.CENTER);
+		gewinn.add(panel, BorderLayout.NORTH);
 		
 
 	}

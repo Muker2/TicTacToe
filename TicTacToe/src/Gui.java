@@ -18,8 +18,8 @@ public class Gui implements ActionListener{
 	Border border = BorderFactory.createLineBorder(Color.black, 1);
 	JPanel feld = new JPanel();
 	JPanel textfeld = new JPanel();
-	JTextField text = new JTextField();
-	JTextField text1 = new JTextField();
+	JTextField text = new JTextField ("Spieler 1: " + player.getPunkte());
+	JTextField text1 = new JTextField("Spieler 2: " + player.getPunkte());
 	JDialog dialog = new JDialog();
 	Gewinnfenster gewinn = new Gewinnfenster();
 
@@ -31,23 +31,23 @@ public class Gui implements ActionListener{
 		frame.setLayout(new BorderLayout());
 		frame.setLocationRelativeTo(null);
 		
+		/*
 		text.setBackground(Color.BLUE);
 		text.setForeground(Color.WHITE);
 		text.setFont(new Font("Arial", Font.PLAIN, 20));
 		text.setHorizontalAlignment(JLabel.CENTER);
-		text.setText("Spieler 1: " + player.getPunkte());
 		
 		text1.setBackground(Color.BLUE);
 		text1.setForeground(Color.WHITE);
 		text1.setFont(new Font("Arial", Font.PLAIN, 20));
 		text1.setHorizontalAlignment(JLabel.CENTER);
-		text1.setText("Spieler 2: " + player.getPunkte());
 		
 		
 		textfeld.setLayout(new BoxLayout(textfeld, BoxLayout.LINE_AXIS));
 		textfeld.setBounds(0, 0, 0, 100);
 		textfeld.setBackground(Color.BLUE);
 		textfeld.setOpaque(true);
+		*/
 		
 		dialog.setSize(300, 300);
 		dialog.setModal(true);
@@ -65,8 +65,8 @@ public class Gui implements ActionListener{
 		}
 		
 		
-		textfeld.add(text);
-		textfeld.add(text1);
+		/*textfeld.add(text);
+		textfeld.add(text1);*/
 		frame.add(textfeld, BorderLayout.SOUTH);
 		frame.add(feld, BorderLayout.CENTER);
 		frame.setVisible(true);
