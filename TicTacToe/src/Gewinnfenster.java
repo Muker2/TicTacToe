@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class Gewinnfenster {
+public class GewinnFenster {
 	
 	JDialog gewinn = new JDialog();
 	JLabel panel = new JLabel();
