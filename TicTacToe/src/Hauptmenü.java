@@ -27,6 +27,7 @@ public class Hauptmenü implements ActionListener {
 		buttons.setVisible(true);
 		buttons.add(btn1);
 		buttons.add(btn2);
+		buttons.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		frame.add(buttons, BorderLayout.CENTER);
 

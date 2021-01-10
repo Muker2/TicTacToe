@@ -19,6 +19,7 @@ public class Gui implements ActionListener{
 	JPanel feld = new JPanel();
 	JPanel textfeld = new JPanel();
 	JTextField text = new JTextField();
+	JTextField text1 = new JTextField();
 	JDialog dialog = new JDialog();
 	Gewinnfenster gewinn = new Gewinnfenster();
 
@@ -32,12 +33,19 @@ public class Gui implements ActionListener{
 		
 		text.setBackground(Color.BLUE);
 		text.setForeground(Color.WHITE);
-		text.setFont(new Font("Arial", Font.PLAIN, 10));
+		text.setFont(new Font("Arial", Font.PLAIN, 20));
 		text.setHorizontalAlignment(JLabel.CENTER);
-		text.setText("Tic Tac Toe");
+		text.setText("Spieler 1: " + player.getPunkte());
 		
-		textfeld.setLayout(new BorderLayout());
-		textfeld.setBounds(0, 0, 700, 100);
+		text1.setBackground(Color.BLUE);
+		text1.setForeground(Color.WHITE);
+		text1.setFont(new Font("Arial", Font.PLAIN, 20));
+		text1.setHorizontalAlignment(JLabel.CENTER);
+		text1.setText("Spieler 2: " + player.getPunkte());
+		
+		
+		textfeld.setLayout(new BoxLayout(textfeld, BoxLayout.LINE_AXIS));
+		textfeld.setBounds(0, 0, 0, 100);
 		textfeld.setBackground(Color.BLUE);
 		textfeld.setOpaque(true);
 		
@@ -45,7 +53,6 @@ public class Gui implements ActionListener{
 		dialog.setModal(true);
 		dialog.setVisible(false);
 		
-	
 		feld.setLayout(new GridLayout(3, 3));
 		for (int i = 0; i<felder.length; i++) {
 			felder[i] = new JButton("");
@@ -57,7 +64,10 @@ public class Gui implements ActionListener{
 			feld.add(felder[i]);
 		}
 		
-		frame.add(textfeld, BorderLayout.NORTH);
+		
+		textfeld.add(text);
+		textfeld.add(text1);
+		frame.add(textfeld, BorderLayout.SOUTH);
 		frame.add(feld, BorderLayout.CENTER);
 		frame.setVisible(true);
 		
