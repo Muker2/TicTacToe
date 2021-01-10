@@ -28,6 +28,7 @@ public class Gui implements ActionListener{
 		frame.setSize(500, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
+		frame.setLocationRelativeTo(null);
 		
 		text.setBackground(Color.BLUE);
 		text.setForeground(Color.WHITE);

@@ -20,6 +20,7 @@ public class Gewinnfenster {
 		gewinn.setTitle("Tic Tac Toe");
 		gewinn.setSize(300, 300);
 		gewinn.setLayout(new BorderLayout());
+		gewinn.setLocationRelativeTo(null);
 		gewinn.setVisible(true);
 		gewinn.setModal(true);
 		
