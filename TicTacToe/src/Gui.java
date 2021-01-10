@@ -20,7 +20,7 @@ public class Gui implements ActionListener{
 	JPanel textfeld = new JPanel();
 	JTextField text = new JTextField();
 	JDialog dialog = new JDialog();
-	GewinnFenster gewinn = new GewinnFenster();
+	Gewinnfenster gewinn = new Gewinnfenster();
 
 
 	Gui(){
