@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -24,13 +25,18 @@ public class Hauptmenü implements ActionListener {
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		
+		
+		btn1.setPreferredSize(new Dimension (100, 50));
+		
 		btn2.addActionListener(this);
+		btn2.setPreferredSize(new Dimension (100, 50));
+
 
 		
 		label.setBackground(Color.WHITE);
 		label.setVisible(true);
 		label.setText("Tic Tac Toe");
-		label.setFont(new Font("Arial", Font.PLAIN, 20));
+		label.setFont(new Font("Arial", Font.PLAIN, 15));
 		
 		
 		buttons.setSize(300, 300);
@@ -42,7 +48,7 @@ public class Hauptmenü implements ActionListener {
 		
 		panel.add(label);
 		frame.add(panel, BorderLayout.NORTH);
-		frame.add(buttons, BorderLayout.SOUTH);
+		frame.add(buttons, BorderLayout.CENTER);
 
 	}
 

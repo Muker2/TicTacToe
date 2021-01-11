@@ -17,12 +17,11 @@ public class Gewinnfenster {
 	JPanel buttonlayout = new JPanel();
 	JLabel label = new JLabel();
 	JLabel label2 = new JLabel();
-
 	
 	public void gewonnen(int win){
 		gewinn.setTitle("Tic Tac Toe");
 		gewinn.setSize(300, 200);
-		gewinn.setLayout(new BorderLayout());
+		gewinn.setLayout(new BorderLayout(20, 20));
 		gewinn.setLocationRelativeTo(null);
 		gewinn.setVisible(true);
 		gewinn.setModal(true);
@@ -48,7 +47,7 @@ public class Gewinnfenster {
 		label.setFont(new Font("Arial", Font.PLAIN, 15));
 		panel.add(label);
 	
-		gewinn.add(buttonlayout, BorderLayout.SOUTH);
+		gewinn.add(buttonlayout, BorderLayout.CENTER);
 		gewinn.add(panel, BorderLayout.NORTH);
 		
 
