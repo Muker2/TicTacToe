@@ -60,7 +60,7 @@ public class Gewinnfenster {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			gewinn.dispose();
-			Gui gui = new Gui();
+			Spielfeld gui = new Spielfeld();
 			
 		}
 		

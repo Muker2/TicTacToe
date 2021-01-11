@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class Gui implements ActionListener{
+public class Spielfeld implements ActionListener{
 
 	JFrame frame = new JFrame();
 	JButton felder[] = new JButton[9];
@@ -24,7 +24,7 @@ public class Gui implements ActionListener{
 	Gewinnfenster gewinn = new Gewinnfenster();
 
 
-	Gui(){
+	Spielfeld(){
 		frame.setTitle("Tic Tac Toe");
 		frame.setSize(500, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -85,11 +85,13 @@ public class Gui implements ActionListener{
 		
 			if (player.getSpielzug() == true) {
 				button.setText("X");
+				button.setForeground(Color.RED);
 				spielfeldprüfen1();
 				player.setSpielzug(false);
 
 			}else{
 				button.setText("O");
+				button.setForeground(Color.BLUE);
 				spielfeldprüfen2();
 				player.setSpielzug(true);
 			}

@@ -50,7 +50,7 @@ public class Hauptmenü implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		frame.dispose();
-		Gui gui = new Gui();
+		Spielfeld gui = new Spielfeld();
 		
 	}
 
