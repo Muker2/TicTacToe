@@ -21,7 +21,6 @@ public class Spielfeld implements ActionListener{
 	JTextField text = new JTextField ("Spieler 1: " + player.getPunkte());
 	JTextField text1 = new JTextField("Spieler 2: " + player.getPunkte());
 	JDialog dialog = new JDialog();
-	Gewinnfenster gewinn = new Gewinnfenster();
 
 
 	Spielfeld(){
@@ -79,148 +78,32 @@ public class Spielfeld implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		JButton button = (JButton) e.getSource();
-		if (button.getText().equals("O") || button.getText().equals("X")) {
-			return;
-		}else {
-		
-			if (player.getSpielzug() == true) {
-				button.setText("X");
-				button.setForeground(Color.RED);
-				spielfeldprüfen1();
-				player.setSpielzug(false);
 
-			}else{
-				button.setText("O");
-				button.setForeground(Color.BLUE);
-				spielfeldprüfen2();
-				player.setSpielzug(true);
-			}
+				player.setzen(button);
+				player.spielfeldprüfen(felder[0], felder[1], felder[2], frame, "X");
+				player.spielfeldprüfen(felder[0], felder[3], felder[6], frame, "X");
+				player.spielfeldprüfen(felder[0], felder[4], felder[8], frame, "X");
+				player.spielfeldprüfen(felder[1], felder[4], felder[7], frame, "X");
+				player.spielfeldprüfen(felder[2], felder[5], felder[8], frame, "X");
+				player.spielfeldprüfen(felder[6], felder[7], felder[8], frame, "X");
+				player.spielfeldprüfen(felder[3], felder[4], felder[5], frame, "X");
+				player.spielfeldprüfen(felder[2], felder[4], felder[6], frame, "X");
+				
+
+				player.spielfeldprüfen(felder[0], felder[1], felder[2], frame, "O");
+				player.spielfeldprüfen(felder[0], felder[3], felder[6], frame, "O");
+				player.spielfeldprüfen(felder[0], felder[4], felder[8], frame, "O");
+				player.spielfeldprüfen(felder[1], felder[4], felder[7], frame, "O");
+				player.spielfeldprüfen(felder[2], felder[5], felder[8], frame, "O");
+				player.spielfeldprüfen(felder[6], felder[7], felder[8], frame, "O");
+				player.spielfeldprüfen(felder[3], felder[4], felder[5], frame, "O");
+				player.spielfeldprüfen(felder[2], felder[4], felder[6], frame, "O");
+			
 		}
 		
 	
 	}
 	
-	public void spielfeldprüfen1() {
-		if (felder[0].getText() == "X" && felder[1].getText() == "X" && felder[2].getText() == "X") {
-			System.out.println("Spieler 1 gewinnt");
-			frame.dispose();
-			gewinn.gewonnen(1);
-			
-			}
-		
-		if (felder[0].getText() == "X" && felder[4].getText() == "X" && felder[8].getText() == "X") {
-			System.out.println("Spieler 1 gewinnt");
-			frame.dispose();
-			gewinn.gewonnen(1);
-			}
-		
-		if (felder[0].getText() == "X" && felder[3].getText() == "X" && felder[6].getText() == "X") {
-			System.out.println("Spieler 1 gewinnt");
-			frame.dispose();
-			gewinn.gewonnen(1);
-			}
-		
-		if (felder[1].getText() == "X" && felder[4].getText() == "X" && felder[7].getText() == "X") {
-			System.out.println("Spieler 1 gewinnt");
-			frame.dispose();
-			gewinn.gewonnen(1);
-			}
-		
-		if (felder[2].getText() == "X" && felder[5].getText() == "X" && felder[8].getText() == "X") {
-			System.out.println("Spieler 1 gewinnt");
-			frame.dispose();
-			gewinn.gewonnen(1);
-			}
-		
-		if (felder[6].getText() == "X" && felder[7].getText() == "X" && felder[8].getText() == "X") {
-			System.out.println("Spieler 1 gewinnt");
-			frame.dispose();
-			gewinn.gewonnen(1);
-			}
-		
-		if (felder[2].getText() == "X" && felder[4].getText() == "X" && felder[6].getText() == "X") {
-			System.out.println("Spieler 1 gewinnt");
-			frame.dispose();
-			gewinn.gewonnen(1);
-			}
-		
-		if (felder[3].getText() == "X" && felder[4].getText() == "X" && felder[5].getText() == "X") {
-			System.out.println("Spieler 1 gewinnt");
-			frame.dispose();
-			gewinn.gewonnen(1);
-			}
-		
-		else {
-		return;
-		}
-		
-	}
-	
-	public void spielfeldprüfen2() {
-		if (felder[0].getText() == "O" && felder[1].getText() == "O" && felder[2].getText() == "O") {
-			System.out.println("Spieler 2 gewinnt");
-			frame.dispose();
-			gewinn.gewonnen(2);
-			
-			}
-		
-		if (felder[0].getText() == "O" && felder[4].getText() == "O" && felder[8].getText() == "O") {
-			System.out.println("Spieler 2 gewinnt");
-			frame.dispose();
-			gewinn.gewonnen(2);
-
-			}
-		
-		if (felder[0].getText() == "O" && felder[3].getText() == "O" && felder[6].getText() == "O") {
-			System.out.println("Spieler 2 gewinnt");
-			frame.dispose();
-			gewinn.gewonnen(2);
-			}
-		
-		if (felder[1].getText() == "O" && felder[4].getText() == "O" && felder[7].getText() == "O") {
-			System.out.println("Spieler 2 gewinnt");
-			frame.dispose();
-			gewinn.gewonnen(2);
-			}
-		
-		if (felder[2].getText() == "O" && felder[5].getText() == "O" && felder[8].getText() == "O") {
-			System.out.println("Spieler 2 gewinnt");
-			frame.dispose();
-			gewinn.gewonnen(2);
-
-			}
-		
-		if (felder[6].getText() == "O" && felder[7].getText() == "O" && felder[8].getText() == "O") {
-			System.out.println("Spieler 2 gewinnt");
-			frame.dispose();
-			gewinn.gewonnen(2);
-
-			}
-		
-		if (felder[2].getText() == "O" && felder[4].getText() == "O" && felder[6].getText() == "O") {
-			System.out.println("Spieler 2 gewinnt");
-			frame.dispose();
-			gewinn.gewonnen(2);
-
-			}
-		
-		if (felder[3].getText() == "O" && felder[4].getText() == "O" && felder[5].getText() == "O") {
-			System.out.println("Spieler 2 gewinnt");
-			frame.dispose();
-			gewinn.gewonnen(2);
-
-			}
-		else {
-			
-		return;}
-	}
-	
-	
-			
-
-		
-		
-}  // test um zu gucken ob es bei Marius klappt
 	
 	
 

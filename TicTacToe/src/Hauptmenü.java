@@ -25,26 +25,21 @@ public class Hauptmenü implements ActionListener {
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		
-		
 		btn1.setPreferredSize(new Dimension (100, 50));
 		
 		btn2.addActionListener(this);
 		btn2.setPreferredSize(new Dimension (100, 50));
 
-
-		
 		label.setBackground(Color.WHITE);
 		label.setVisible(true);
 		label.setText("Tic Tac Toe");
 		label.setFont(new Font("Arial", Font.PLAIN, 15));
-		
 		
 		buttons.setSize(300, 300);
 		buttons.setLayout(new FlowLayout());
 		buttons.setVisible(true);
 		buttons.add(btn1);
 		buttons.add(btn2);
-		
 		
 		panel.add(label);
 		frame.add(panel, BorderLayout.NORTH);
