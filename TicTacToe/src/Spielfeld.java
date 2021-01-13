@@ -78,8 +78,9 @@ public class Spielfeld implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		JButton button = (JButton) e.getSource();
-
+		
 				player.setzen(button);
+				
 				player.spielfeldprüfen(felder[0], felder[1], felder[2], frame, "X");
 				player.spielfeldprüfen(felder[0], felder[3], felder[6], frame, "X");
 				player.spielfeldprüfen(felder[0], felder[4], felder[8], frame, "X");
@@ -89,7 +90,6 @@ public class Spielfeld implements ActionListener{
 				player.spielfeldprüfen(felder[3], felder[4], felder[5], frame, "X");
 				player.spielfeldprüfen(felder[2], felder[4], felder[6], frame, "X");
 				
-
 				player.spielfeldprüfen(felder[0], felder[1], felder[2], frame, "O");
 				player.spielfeldprüfen(felder[0], felder[3], felder[6], frame, "O");
 				player.spielfeldprüfen(felder[0], felder[4], felder[8], frame, "O");
@@ -98,7 +98,7 @@ public class Spielfeld implements ActionListener{
 				player.spielfeldprüfen(felder[6], felder[7], felder[8], frame, "O");
 				player.spielfeldprüfen(felder[3], felder[4], felder[5], frame, "O");
 				player.spielfeldprüfen(felder[2], felder[4], felder[6], frame, "O");
-			
+		
 		}
 		
 	
