@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 public class Spielfeld implements ActionListener{
 
 	JFrame frame = new JFrame();
-	JButton felder[] = new JButton[9];
+	JButton felder[][] = new JButton[3][3];
 	Player player = new Player();
 	Border border = BorderFactory.createLineBorder(Color.black, 1);
 	JPanel feld = new JPanel();
@@ -53,14 +53,16 @@ public class Spielfeld implements ActionListener{
 		dialog.setVisible(false);
 		
 		feld.setLayout(new GridLayout(3, 3));
-		for (int i = 0; i<felder.length; i++) {
-			felder[i] = new JButton("");
-			felder[i].setBorder(border);
-			felder[i].setBackground(Color.WHITE);
-			felder[i].setOpaque(true);
-			felder[i].setFont(new Font("Arial", Font.PLAIN, 30));
-			felder[i].addActionListener(this);
-			feld.add(felder[i]);
+		for (int i = 0; i<3; i++) {
+				for(int j = 0; j<3; j++) {
+			felder[i][j] = new JButton();
+			feld.add(felder[i][j]);
+			felder[i][j].setBorder(border);
+			felder[i][j].setBackground(Color.WHITE);
+			felder[i][j].setOpaque(true);
+			felder[i][j].setFont(new Font("Arial", Font.PLAIN, 30));
+			felder[i][j].addActionListener(this);
+				}
 		}
 		
 		
@@ -81,23 +83,25 @@ public class Spielfeld implements ActionListener{
 		
 				player.setzen(button);
 				
-				player.spielfeldprüfen(felder[0], felder[1], felder[2], frame, "X");
-				player.spielfeldprüfen(felder[0], felder[3], felder[6], frame, "X");
-				player.spielfeldprüfen(felder[0], felder[4], felder[8], frame, "X");
-				player.spielfeldprüfen(felder[1], felder[4], felder[7], frame, "X");
-				player.spielfeldprüfen(felder[2], felder[5], felder[8], frame, "X");
-				player.spielfeldprüfen(felder[6], felder[7], felder[8], frame, "X");
-				player.spielfeldprüfen(felder[3], felder[4], felder[5], frame, "X");
-				player.spielfeldprüfen(felder[2], felder[4], felder[6], frame, "X");
+				player.spielfeldprüfen(felder[0][0], felder[0][1], felder[0][2], frame, "X");
+				player.spielfeldprüfen(felder[0][0], felder[1][0], felder[2][0], frame, "X");
+				player.spielfeldprüfen(felder[0][0], felder[1][1], felder[2][2], frame, "X");
+				player.spielfeldprüfen(felder[0][1], felder[1][1], felder[2][1], frame, "X");
+				player.spielfeldprüfen(felder[0][2], felder[1][2], felder[2][2], frame, "X");
+				player.spielfeldprüfen(felder[2][0], felder[2][1], felder[2][2], frame, "X");
+				player.spielfeldprüfen(felder[1][0], felder[1][1], felder[1][2], frame, "X");
+				player.spielfeldprüfen(felder[0][2], felder[1][1], felder[2][0], frame, "X");
 				
-				player.spielfeldprüfen(felder[0], felder[1], felder[2], frame, "O");
-				player.spielfeldprüfen(felder[0], felder[3], felder[6], frame, "O");
-				player.spielfeldprüfen(felder[0], felder[4], felder[8], frame, "O");
-				player.spielfeldprüfen(felder[1], felder[4], felder[7], frame, "O");
-				player.spielfeldprüfen(felder[2], felder[5], felder[8], frame, "O");
-				player.spielfeldprüfen(felder[6], felder[7], felder[8], frame, "O");
-				player.spielfeldprüfen(felder[3], felder[4], felder[5], frame, "O");
-				player.spielfeldprüfen(felder[2], felder[4], felder[6], frame, "O");
+				player.spielfeldprüfen(felder[0][0], felder[0][1], felder[0][2], frame, "O");
+				player.spielfeldprüfen(felder[0][0], felder[1][0], felder[2][0], frame, "O");
+				player.spielfeldprüfen(felder[0][0], felder[1][1], felder[2][2], frame, "O");
+				player.spielfeldprüfen(felder[0][1], felder[1][1], felder[2][1], frame, "O");
+				player.spielfeldprüfen(felder[0][2], felder[1][2], felder[2][2], frame, "O");
+				player.spielfeldprüfen(felder[2][0], felder[2][1], felder[2][2], frame, "O");
+				player.spielfeldprüfen(felder[1][0], felder[1][1], felder[1][2], frame, "O");
+				player.spielfeldprüfen(felder[0][2], felder[1][1], felder[2][0], frame, "O");
+				
+				
 		
 		}
 		
