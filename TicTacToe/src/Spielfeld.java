@@ -82,26 +82,8 @@ public class Spielfeld implements ActionListener{
 		JButton button = (JButton) e.getSource();
 		
 				player.setzen(button);
-				
-				player.spielfeldprüfen(felder[0][0], felder[0][1], felder[0][2], frame, "X");
-				player.spielfeldprüfen(felder[0][0], felder[1][0], felder[2][0], frame, "X");
-				player.spielfeldprüfen(felder[0][0], felder[1][1], felder[2][2], frame, "X");
-				player.spielfeldprüfen(felder[0][1], felder[1][1], felder[2][1], frame, "X");
-				player.spielfeldprüfen(felder[0][2], felder[1][2], felder[2][2], frame, "X");
-				player.spielfeldprüfen(felder[2][0], felder[2][1], felder[2][2], frame, "X");
-				player.spielfeldprüfen(felder[1][0], felder[1][1], felder[1][2], frame, "X");
-				player.spielfeldprüfen(felder[0][2], felder[1][1], felder[2][0], frame, "X");
-				
-				player.spielfeldprüfen(felder[0][0], felder[0][1], felder[0][2], frame, "O");
-				player.spielfeldprüfen(felder[0][0], felder[1][0], felder[2][0], frame, "O");
-				player.spielfeldprüfen(felder[0][0], felder[1][1], felder[2][2], frame, "O");
-				player.spielfeldprüfen(felder[0][1], felder[1][1], felder[2][1], frame, "O");
-				player.spielfeldprüfen(felder[0][2], felder[1][2], felder[2][2], frame, "O");
-				player.spielfeldprüfen(felder[2][0], felder[2][1], felder[2][2], frame, "O");
-				player.spielfeldprüfen(felder[1][0], felder[1][1], felder[1][2], frame, "O");
-				player.spielfeldprüfen(felder[0][2], felder[1][1], felder[2][0], frame, "O");
-				
-				
+				player.winner(felder, frame);
+				player.tie(felder, frame);
 		
 		}
 		
