@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class Hauptmenü implements ActionListener {
+public class Hauptmenü{
 	
 	JFrame frame = new JFrame();
 	JButton btn1 = new JButton("1 Spieler");
@@ -25,9 +25,10 @@ public class Hauptmenü implements ActionListener {
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		
+		btn1.addActionListener(new einspieler());
 		btn1.setPreferredSize(new Dimension (100, 50));
 		
-		btn2.addActionListener(this);
+		btn2.addActionListener(new zweispieler());
 		btn2.setPreferredSize(new Dimension (100, 50));
 
 		label.setBackground(Color.WHITE);
@@ -47,11 +48,27 @@ public class Hauptmenü implements ActionListener {
 
 	}
 
+	
+	public class zweispieler implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		frame.dispose();
 		Spielfeld gui = new Spielfeld();
+		
+	}
+	
+}
+	
+	public class einspieler implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+		frame.dispose();
+		Spielfeldcom com = new Spielfeldcom();
+			
+		}
 		
 	}
 
