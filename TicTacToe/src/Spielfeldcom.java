@@ -14,98 +14,77 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 
 public class Spielfeldcom implements ActionListener {
-	
+
 	JFrame frame = new JFrame();
 	JButton felder[][] = new JButton[3][3];
-	Player player = new Player();
+	KI ki = new KI();
 	Border border = BorderFactory.createLineBorder(Color.black, 1);
 	JPanel feld = new JPanel();
 	JPanel textfeld = new JPanel();
-	JTextField text = new JTextField ("Spieler 1: " + player.getPunkte());
-	JTextField text1 = new JTextField("Spieler 2: " + player.getPunkte());
+	// JTextField text = new JTextField ("Spieler 1: " + player.getPunkte());
+	// JTextField text1 = new JTextField("Spieler 2: " + player.getPunkte());
 	JDialog dialog = new JDialog();
 
-
-	Spielfeldcom(){
+	Spielfeldcom() {
 		frame.setTitle("Tic Tac Toe");
 		frame.setSize(500, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
 		frame.setLocationRelativeTo(null);
-		
+
 		/*
-		text.setBackground(Color.BLUE);
-		text.setForeground(Color.WHITE);
-		text.setFont(new Font("Arial", Font.PLAIN, 20));
-		text.setHorizontalAlignment(JLabel.CENTER);
-		
-		text1.setBackground(Color.BLUE);
-		text1.setForeground(Color.WHITE);
-		text1.setFont(new Font("Arial", Font.PLAIN, 20));
-		text1.setHorizontalAlignment(JLabel.CENTER);
-		
-		
-		textfeld.setLayout(new BoxLayout(textfeld, BoxLayout.LINE_AXIS));
-		textfeld.setBounds(0, 0, 0, 100);
-		textfeld.setBackground(Color.BLUE);
-		textfeld.setOpaque(true);
-		*/
-		
+		 * text.setBackground(Color.BLUE); text.setForeground(Color.WHITE);
+		 * text.setFont(new Font("Arial", Font.PLAIN, 20));
+		 * text.setHorizontalAlignment(JLabel.CENTER);
+		 * 
+		 * text1.setBackground(Color.BLUE); text1.setForeground(Color.WHITE);
+		 * text1.setFont(new Font("Arial", Font.PLAIN, 20));
+		 * text1.setHorizontalAlignment(JLabel.CENTER);
+		 * 
+		 * 
+		 * textfeld.setLayout(new BoxLayout(textfeld, BoxLayout.LINE_AXIS));
+		 * textfeld.setBounds(0, 0, 0, 100); textfeld.setBackground(Color.BLUE);
+		 * textfeld.setOpaque(true);
+		 */
+
 		dialog.setSize(300, 300);
 		dialog.setModal(true);
 		dialog.setVisible(false);
-		
+
 		feld.setLayout(new GridLayout(3, 3));
-		for (int i = 0; i<3; i++) {
-				for(int j = 0; j<3; j++) {
-			felder[i][j] = new JButton();
-			feld.add(felder[i][j]);
-			felder[i][j].setBorder(border);
-			felder[i][j].setBackground(Color.WHITE);
-			felder[i][j].setOpaque(true);
-			felder[i][j].setFont(new Font("Arial", Font.PLAIN, 30));
-			felder[i][j].addActionListener(this);
-				}
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				felder[i][j] = new JButton();
+				feld.add(felder[i][j]);
+				felder[i][j].setBorder(border);
+				felder[i][j].setBackground(Color.WHITE);
+				felder[i][j].setOpaque(true);
+				felder[i][j].setFont(new Font("Arial", Font.PLAIN, 30));
+				felder[i][j].addActionListener(this);
+			}
 		}
-		
-		
-		/*textfeld.add(text);
-		textfeld.add(text1);*/
+
+		/*
+		 * textfeld.add(text); textfeld.add(text1);
+		 */
 		frame.add(textfeld, BorderLayout.SOUTH);
 		frame.add(feld, BorderLayout.CENTER);
 		frame.setVisible(true);
-		
-		
-		}
 
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		JButton button = (JButton) e.getSource();
-		
-				player.setzen(button);
-				
-				player.spielfeldprüfen(felder[0][0], felder[0][1], felder[0][2], frame, "X");
-				player.spielfeldprüfen(felder[0][0], felder[1][0], felder[2][0], frame, "X");
-				player.spielfeldprüfen(felder[0][0], felder[1][1], felder[2][2], frame, "X");
-				player.spielfeldprüfen(felder[0][1], felder[1][1], felder[2][1], frame, "X");
-				player.spielfeldprüfen(felder[0][2], felder[1][2], felder[2][2], frame, "X");
-				player.spielfeldprüfen(felder[2][0], felder[2][1], felder[2][2], frame, "X");
-				player.spielfeldprüfen(felder[1][0], felder[1][1], felder[1][2], frame, "X");
-				player.spielfeldprüfen(felder[0][2], felder[1][1], felder[2][0], frame, "X");
-				
-				player.spielfeldprüfen(felder[0][0], felder[0][1], felder[0][2], frame, "O");
-				player.spielfeldprüfen(felder[0][0], felder[1][0], felder[2][0], frame, "O");
-				player.spielfeldprüfen(felder[0][0], felder[1][1], felder[2][2], frame, "O");
-				player.spielfeldprüfen(felder[0][1], felder[1][1], felder[2][1], frame, "O");
-				player.spielfeldprüfen(felder[0][2], felder[1][2], felder[2][2], frame, "O");
-				player.spielfeldprüfen(felder[2][0], felder[2][1], felder[2][2], frame, "O");
-				player.spielfeldprüfen(felder[1][0], felder[1][1], felder[1][2], frame, "O");
-				player.spielfeldprüfen(felder[0][2], felder[1][1], felder[2][0], frame, "O");
-				
-				
-		
-		}
+
+		ki.setzen(button);
+		ki.winner(felder, frame);
+		ki.tie(felder, frame);
+		ki.ki(felder, frame);
+		ki.winner(felder, frame);
+		ki.tie(felder, frame);
+
+	}
 
 }

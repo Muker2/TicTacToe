@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class Gewinnfenster {
-	
+
 	JDialog gewinn = new JDialog();
 	JPanel panel = new JPanel();
 	JButton nm = new JButton();
@@ -17,96 +17,99 @@ public class Gewinnfenster {
 	JPanel buttonlayout = new JPanel();
 	JLabel label = new JLabel();
 	JLabel label2 = new JLabel();
-	
-	public void gewonnen(int win){
+
+	public void gewonnen(int win) {
 		gewinn.setTitle("Tic Tac Toe");
 		gewinn.setSize(300, 200);
 		gewinn.setLayout(new BorderLayout(20, 20));
 		gewinn.setLocationRelativeTo(null);
 		gewinn.setVisible(true);
 		gewinn.setModal(true);
-		
+
 		hm.setText("Hauptmenü");
-		hm.setPreferredSize(new Dimension (100, 50));
+		hm.setPreferredSize(new Dimension(100, 50));
 		hm.addActionListener(new zurück());
 		hm.setVisible(true);
-		
+
 		nm.setText("Nochmal");
-		nm.setPreferredSize(new Dimension (100, 50));
+		nm.setPreferredSize(new Dimension(100, 50));
 		nm.addActionListener(new nochmal());
 		nm.setVisible(true);
-		
+
 		buttonlayout.setSize(300, 50);
-		buttonlayout.setLayout (new FlowLayout());
+		buttonlayout.setLayout(new FlowLayout());
 		buttonlayout.add(nm);
 		buttonlayout.add(hm);
-		
+		buttonlayout.setVisible(true);
+
 		label.setBackground(Color.WHITE);
 		label.setVisible(true);
-		label.setText("Glückwunsch!" + " " + "Spieler" + " " + win  + " "  +"hat gewonnen!");
+		label.setText("Glückwunsch!" + " " + "Spieler" + " " + win + " " + "hat gewonnen!");
+
+		if (win == 3) {
+			label.setText("Com gewinnt!");
+		}
 		label.setFont(new Font("Arial", Font.PLAIN, 15));
 		panel.add(label);
-	
+
 		gewinn.add(buttonlayout, BorderLayout.CENTER);
 		gewinn.add(panel, BorderLayout.NORTH);
-		
 
 	}
-	
-	public void unentschieden(){
+
+	public void unentschieden() {
 		gewinn.setTitle("Tic Tac Toe");
 		gewinn.setSize(300, 200);
 		gewinn.setLayout(new BorderLayout(20, 20));
 		gewinn.setLocationRelativeTo(null);
 		gewinn.setVisible(true);
 		gewinn.setModal(true);
-		
+
 		hm.setText("Hauptmenü");
-		hm.setPreferredSize(new Dimension (100, 50));
+		hm.setPreferredSize(new Dimension(100, 50));
 		hm.addActionListener(new zurück());
 		hm.setVisible(true);
-		
+
 		nm.setText("Nochmal");
-		nm.setPreferredSize(new Dimension (100, 50));
+		nm.setPreferredSize(new Dimension(100, 50));
 		nm.addActionListener(new nochmal());
 		nm.setVisible(true);
-		
+
 		buttonlayout.setSize(300, 50);
-		buttonlayout.setLayout (new FlowLayout());
+		buttonlayout.setLayout(new FlowLayout());
 		buttonlayout.add(nm);
 		buttonlayout.add(hm);
-		
+
 		label.setBackground(Color.WHITE);
 		label.setVisible(true);
 		label.setText("Unentschieden");
 		label.setFont(new Font("Arial", Font.PLAIN, 15));
 		panel.add(label);
-	
+
 		gewinn.add(buttonlayout, BorderLayout.CENTER);
 		gewinn.add(panel, BorderLayout.NORTH);
-		
 
 	}
-	class nochmal implements ActionListener{
+
+	class nochmal implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			gewinn.dispose();
-			Spielfeld gui = new Spielfeld();
-			
+			Spielfeldcom gui = new Spielfeldcom();
+
 		}
-		
+
 	}
 
-
-	class zurück implements ActionListener{
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+	class zurück implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
 			gewinn.dispose();
 			Hauptmenü menü = new Hauptmenü();
-		
-	}
+
+		}
 	}
 }

@@ -42,6 +42,7 @@ public class Player {
 
 	public boolean winner(JButton[][] button, JFrame f) {
 
+		// Horizontale
 		for (int i = 0; i < 3; i++) {
 			if (!button[i][0].getText().equals("")) {
 				if (button[i][0].getText().equals(button[i][1].getText())
@@ -58,6 +59,7 @@ public class Player {
 			}
 		}
 
+		// Vertikale
 		for (int i = 0; i < 3; i++) {
 			if (!button[0][i].getText().equals("")) {
 				if (button[0][i].getText().equals(button[1][i].getText())
@@ -103,10 +105,7 @@ public class Player {
 
 			}
 
-		} else {
-
 		}
-
 		unentschieden = false;
 		return unentschieden;
 	}
@@ -114,7 +113,7 @@ public class Player {
 	public void tie(JButton[][] button, JFrame f) {
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
-				if (!button[i][j].getText().equals("") && zugzahl == 9 && !winner(button, f)) {
+				if (!button[i][j].getText().equals("") && zugzahl == 9 && winner(button, f)) {
 					f.dispose();
 					fenster.unentschieden();
 
@@ -125,14 +124,12 @@ public class Player {
 	}
 
 	public void setzen(JButton b) {
-
-		zugzahl++;
-
 		if (!b.getText().equals("") || !b.getText().equals("")) {
 			return;
 		}
 
 		else {
+			zugzahl++;
 			if (this.spielzug == true) {
 				b.setText("X");
 				b.setForeground(Color.RED);
