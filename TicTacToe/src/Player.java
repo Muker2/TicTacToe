@@ -2,75 +2,46 @@ import java.awt.Color;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class Player {
-	private int Punkte = 0;
-	private int zugzahl = 0;
-	private boolean spielzug = true;
-	private String text1 = "Spieler 1 ist am Zug";
-	private String text2 = "Spieler 2 ist am Zug";
-	private boolean unentschieden = true;
+	private int turn = 1;
 	Gewinnfenster fenster = new Gewinnfenster();
-
-	public String getText1() {
-		return text1;
-	}
-
-	public String getText2() {
-		return text2;
-	}
-
-	public int getPunkte() {
-		return Punkte;
-	}
-
-	public void setPunkte(int punkte) {
-		this.Punkte = punkte;
-	}
-
-	public boolean getSpielzug() {
-		return spielzug;
-	}
-
-	public void setSpielzug(boolean zug) {
-		this.spielzug = zug;
-	}
-
-	public int getZugzahl() {
-		return zugzahl;
-	}
 
 	public boolean winner(JButton[][] button, JFrame f) {
 
-		// Horizontale
 		for (int i = 0; i < 3; i++) {
 			if (!button[i][0].getText().equals("")) {
 				if (button[i][0].getText().equals(button[i][1].getText())
 						&& button[i][1].getText().equals(button[i][2].getText())) {
-					if (this.spielzug == true) {
-						f.dispose();
-						fenster.gewonnen(2);
-					} else {
+					if (turn == 0) {
 						f.dispose();
 						fenster.gewonnen(1);
+					} else {
+						f.dispose();
+						fenster.gewonnen(2);
 					}
+
+					return true;
 
 				}
 			}
 		}
 
-		// Vertikale
 		for (int i = 0; i < 3; i++) {
 			if (!button[0][i].getText().equals("")) {
 				if (button[0][i].getText().equals(button[1][i].getText())
 						&& button[1][i].getText().equals(button[2][i].getText())) {
-					if (this.spielzug == true) {
-						f.dispose();
-						fenster.gewonnen(2);
-					} else {
+					if (turn == 0) {
 						f.dispose();
 						fenster.gewonnen(1);
+					} else {
+						f.dispose();
+						fenster.gewonnen(2);
 					}
+
+					return true;
 
 				}
 			}
@@ -82,66 +53,81 @@ public class Player {
 					&& button[1][1].getText().equals(button[2][2].getText())
 
 			) {
-				if (this.spielzug == true) {
-					f.dispose();
-					fenster.gewonnen(2);
-				} else {
+				if (turn == 0) {
 					f.dispose();
 					fenster.gewonnen(1);
+				} else {
+					f.dispose();
+					fenster.gewonnen(2);
 				}
+
+				return true;
 			}
 		}
 		if (!button[0][2].getText().equals("") && !button[1][1].getText().equals("")
 				&& !button[2][0].getText().equals("")) {
 			if (button[0][2].getText().equals(button[1][1].getText())
 					&& button[1][1].getText().equals(button[2][0].getText())) {
-				if (this.spielzug == true) {
-					f.dispose();
-					fenster.gewonnen(2);
-				} else {
+				if (turn == 0) {
 					f.dispose();
 					fenster.gewonnen(1);
-				}
-
-			}
-
-		}
-		unentschieden = false;
-		return unentschieden;
-	}
-
-	public void tie(JButton[][] button, JFrame f) {
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 3; j++) {
-				if (!button[i][j].getText().equals("") && zugzahl == 9 && winner(button, f)) {
+				} else {
 					f.dispose();
-					fenster.unentschieden();
-
+					fenster.gewonnen(2);
 				}
 
+				return true;
+
 			}
+
 		}
+		return false;
 	}
 
-	public void setzen(JButton b) {
+	public void setzen(JButton b, JTextField p, JTextField o) {
 		if (!b.getText().equals("") || !b.getText().equals("")) {
 			return;
 		}
 
 		else {
-			zugzahl++;
-			if (this.spielzug == true) {
+			if (turn == 1) {
+				o.setBackground(Color.BLUE);
+				o.setForeground(Color.WHITE);
+				p.setBackground(Color.WHITE);
+				p.setForeground(Color.BLACK);
 				b.setText("X");
 				b.setForeground(Color.RED);
-				this.setSpielzug(false);
+				turn = 0;
 			} else {
+				p.setBackground(Color.RED);
+				p.setForeground(Color.WHITE);
+				o.setBackground(Color.WHITE);
+				o.setForeground(Color.BLACK);
 				b.setText("O");
 				b.setForeground(Color.BLUE);
-				this.setSpielzug(true);
+				turn = 1;
 			}
 
 		}
 
 	}
 
+	public boolean tie(JButton[][] button, JFrame f) {
+
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				if (button[i][j].getText().equals("")) {
+					return false;
+				}
+			}
+		}
+
+		if (winner(button, f) == false) {
+			f.dispose();
+			fenster.unentschieden();
+			return true;
+		}
+
+		return true;
+	}
 }

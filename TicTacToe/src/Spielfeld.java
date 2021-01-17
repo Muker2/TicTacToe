@@ -17,8 +17,8 @@ public class Spielfeld implements ActionListener {
 	Border border = BorderFactory.createLineBorder(Color.black, 1);
 	JPanel feld = new JPanel();
 	JPanel textfeld = new JPanel();
-	JTextField text = new JTextField("Spieler 1: " + player.getPunkte());
-	JTextField text1 = new JTextField("Spieler 2: " + player.getPunkte());
+	JTextField text = new JTextField("Spieler 1");
+	JTextField text1 = new JTextField("Spieler 2");
 	JDialog dialog = new JDialog();
 
 	Spielfeld() {
@@ -28,31 +28,21 @@ public class Spielfeld implements ActionListener {
 		frame.setLayout(new BorderLayout());
 		frame.setLocationRelativeTo(null);
 
-		text.setBackground(Color.BLUE);
-		text.setForeground(Color.WHITE);
 		text.setFont(new Font("Arial", Font.PLAIN, 20));
 		text.setHorizontalAlignment(JLabel.CENTER);
 
 		text1.setFont(new Font("Arial", Font.PLAIN, 20));
 		text1.setHorizontalAlignment(JLabel.CENTER);
 
+		textfeld.setLayout(new GridLayout(1, 3));
 		textfeld.add(text);
 		textfeld.add(text1);
-		if (player.getSpielzug() == true) {
-			text.setBackground(Color.BLUE);
-			text.setForeground(Color.WHITE);
-		} else {
-			text.setBackground(Color.WHITE);
-			text.setForeground(Color.BLACK);
-		}
 
-		if (player.getSpielzug() == false) {
-			text1.setBackground(Color.BLUE);
-			text1.setForeground(Color.WHITE);
-		} else {
-			text1.setBackground(Color.WHITE);
-			text1.setForeground(Color.BLACK);
-		}
+		text.setBackground(Color.RED);
+		text.setForeground(Color.WHITE);
+
+		text1.setBackground(Color.WHITE);
+		text1.setForeground(Color.BLACK);
 
 		dialog.setSize(300, 300);
 		dialog.setModal(true);
@@ -85,7 +75,7 @@ public class Spielfeld implements ActionListener {
 		// TODO Auto-generated method stub
 		JButton button = (JButton) e.getSource();
 
-		player.setzen(button);
+		player.setzen(button, text, text1);
 		player.winner(felder, frame);
 		player.tie(felder, frame);
 

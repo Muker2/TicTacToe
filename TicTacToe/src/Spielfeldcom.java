@@ -20,9 +20,6 @@ public class Spielfeldcom implements ActionListener {
 	KI ki = new KI();
 	Border border = BorderFactory.createLineBorder(Color.black, 1);
 	JPanel feld = new JPanel();
-	JPanel textfeld = new JPanel();
-	// JTextField text = new JTextField ("Spieler 1: " + player.getPunkte());
-	// JTextField text1 = new JTextField("Spieler 2: " + player.getPunkte());
 	JDialog dialog = new JDialog();
 
 	Spielfeldcom() {
@@ -31,21 +28,6 @@ public class Spielfeldcom implements ActionListener {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
 		frame.setLocationRelativeTo(null);
-
-		/*
-		 * text.setBackground(Color.BLUE); text.setForeground(Color.WHITE);
-		 * text.setFont(new Font("Arial", Font.PLAIN, 20));
-		 * text.setHorizontalAlignment(JLabel.CENTER);
-		 * 
-		 * text1.setBackground(Color.BLUE); text1.setForeground(Color.WHITE);
-		 * text1.setFont(new Font("Arial", Font.PLAIN, 20));
-		 * text1.setHorizontalAlignment(JLabel.CENTER);
-		 * 
-		 * 
-		 * textfeld.setLayout(new BoxLayout(textfeld, BoxLayout.LINE_AXIS));
-		 * textfeld.setBounds(0, 0, 0, 100); textfeld.setBackground(Color.BLUE);
-		 * textfeld.setOpaque(true);
-		 */
 
 		dialog.setSize(300, 300);
 		dialog.setModal(true);
@@ -64,10 +46,6 @@ public class Spielfeldcom implements ActionListener {
 			}
 		}
 
-		/*
-		 * textfeld.add(text); textfeld.add(text1);
-		 */
-		frame.add(textfeld, BorderLayout.SOUTH);
 		frame.add(feld, BorderLayout.CENTER);
 		frame.setVisible(true);
 
