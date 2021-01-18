@@ -10,9 +10,8 @@ import javax.swing.*;
 
 public class Gewinnfenster {
 
-	JDialog gewinn = new JDialog();
+	JFrame gewinn = new JFrame();
 	JPanel panel = new JPanel();
-	JButton nm = new JButton();
 	JButton hm = new JButton();
 	JPanel buttonlayout = new JPanel();
 	JLabel label = new JLabel();
@@ -21,24 +20,19 @@ public class Gewinnfenster {
 	public void gewonnen(int win) {
 		gewinn.setTitle("Tic Tac Toe");
 		gewinn.setSize(300, 200);
+		gewinn.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gewinn.setLayout(new BorderLayout(20, 20));
 		gewinn.setLocationRelativeTo(null);
 		gewinn.setVisible(true);
-		gewinn.setModal(true);
+
 
 		hm.setText("Hauptmenü");
 		hm.setPreferredSize(new Dimension(100, 50));
 		hm.addActionListener(new zurück());
 		hm.setVisible(true);
 
-		nm.setText("Nochmal");
-		nm.setPreferredSize(new Dimension(100, 50));
-		nm.addActionListener(new nochmal());
-		nm.setVisible(true);
-
 		buttonlayout.setSize(300, 50);
 		buttonlayout.setLayout(new FlowLayout());
-		buttonlayout.add(nm);
 		buttonlayout.add(hm);
 		buttonlayout.setVisible(true);
 
@@ -61,23 +55,17 @@ public class Gewinnfenster {
 		gewinn.setTitle("Tic Tac Toe");
 		gewinn.setSize(300, 200);
 		gewinn.setLayout(new BorderLayout(20, 20));
+		gewinn.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gewinn.setLocationRelativeTo(null);
 		gewinn.setVisible(true);
-		gewinn.setModal(true);
 
 		hm.setText("Hauptmenü");
 		hm.setPreferredSize(new Dimension(100, 50));
 		hm.addActionListener(new zurück());
 		hm.setVisible(true);
 
-		nm.setText("Nochmal");
-		nm.setPreferredSize(new Dimension(100, 50));
-		nm.addActionListener(new nochmal());
-		nm.setVisible(true);
-
 		buttonlayout.setSize(300, 50);
 		buttonlayout.setLayout(new FlowLayout());
-		buttonlayout.add(nm);
 		buttonlayout.add(hm);
 
 		label.setBackground(Color.WHITE);
@@ -88,18 +76,6 @@ public class Gewinnfenster {
 
 		gewinn.add(buttonlayout, BorderLayout.CENTER);
 		gewinn.add(panel, BorderLayout.NORTH);
-
-	}
-
-	class nochmal implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			gewinn.dispose();
-			Spielfeldcom gui = new Spielfeldcom();
-
-		}
 
 	}
 

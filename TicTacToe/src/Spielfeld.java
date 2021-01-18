@@ -13,6 +13,7 @@ public class Spielfeld implements ActionListener {
 
 	JFrame frame = new JFrame();
 	JButton felder[][] = new JButton[3][3];
+	JButton hm = new JButton();
 	Player player = new Player();
 	Border border = BorderFactory.createLineBorder(Color.black, 1);
 	JPanel feld = new JPanel();
@@ -33,9 +34,13 @@ public class Spielfeld implements ActionListener {
 
 		text1.setFont(new Font("Arial", Font.PLAIN, 20));
 		text1.setHorizontalAlignment(JLabel.CENTER);
+		
+		hm.setText("Hautpmenü");
+		hm.addActionListener(new zurück());
 
 		textfeld.setLayout(new GridLayout(1, 3));
 		textfeld.add(text);
+		textfeld.add(hm);
 		textfeld.add(text1);
 
 		text.setBackground(Color.RED);
@@ -79,6 +84,16 @@ public class Spielfeld implements ActionListener {
 		player.winner(felder, frame);
 		player.tie(felder, frame);
 
+	}
+	
+	class zurück implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			frame.dispose();
+			Hauptmenü menü = new Hauptmenü();
+
+		}
 	}
 
 }

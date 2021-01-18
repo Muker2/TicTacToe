@@ -120,6 +120,7 @@ public class KI {
 			int j = rand.nextInt(3);
 			if (b[i][j].getText().equals("")) {
 				frei.remove(frei.size() - 1);
+				b[i][j].setForeground(Color.BLUE);
 				b[i][j].setText("O");
 				turn = 1;
 				return;
